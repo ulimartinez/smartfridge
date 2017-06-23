@@ -1,3 +1,10 @@
+# Global files
+
+*.zip
+.svn
+.DS_Store
+thumbs.db
+
 # Built application files
 *.apk
 *.ap_
@@ -53,3 +60,13 @@ google-services.json
 freeline.py
 freeline/
 freeline_project_description.json
+
+# Codeigniter files
+
+*/user_guide
+*/system/logs/log-*.php
+*/system/cache/*
+*/system/cache/!index.html
+*/wsdls/*
+*mailing/
+*/config/database.php
