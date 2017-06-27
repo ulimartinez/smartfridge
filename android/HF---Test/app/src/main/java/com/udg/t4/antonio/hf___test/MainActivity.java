@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_Profile:
                     mTextMessage.setText("Profile");
-                    
                     return true;
                 case R.id.navigation_CalorieC:
                     mTextMessage.setText("Calorie Count");
