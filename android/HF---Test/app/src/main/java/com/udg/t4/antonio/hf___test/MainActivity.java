@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     public static Activity mainActivity;
-    private TextView mTextMessage;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -23,18 +22,23 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_Profile:
                     fragment = new ProfileFragment();
+                    //mTextMessage.setText("Profile");
                     break;
                 case R.id.navigation_CalorieC:
                     fragment = new CalorieFragment();
+                    //mTextMessage.setText("Calorie Count");
                     break;
                 case R.id.navigation_home:
                     fragment = new HomeFragment();
+                    //mTextMessage.setText("Home");
                     break;
                 case R.id.navigation_Ingredients:
                     fragment = new IngredientFragment();
+                    //mTextMessage.setText("Ingredients");
                     break;
                 case R.id.navigation_Recipes:
                     fragment = new RecipeFragment();
+                    //mTextMessage.setText("Recipes");
                     break;
             }
             if (fragment != null) {
