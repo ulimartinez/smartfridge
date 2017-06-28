@@ -15,8 +15,8 @@ public class HomeFragment extends android.app.Fragment{
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home);
-        viewPager = (ViewPager)findViewById(R.id.view_pager);
+        getActivity().setContentView(R.layout.home);
+        viewPager = (ViewPager)getView().findViewById(R.id.view_pager);
         adapter = new CustomSwipeAdapter(this);
         viewPager.setAdapter(adapter);
     }
