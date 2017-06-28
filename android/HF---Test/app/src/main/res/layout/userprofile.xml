@@ -160,17 +160,17 @@
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="50dp"
-        android:layout_marginStart="22dp"
-        android:layout_toEndOf="@+id/textView6">
+        android:layout_below="@+id/radioButton1"
+        android:layout_toStartOf="@+id/radioButton2"
+        android:layout_marginTop="34dp">
 
         <TextView
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Level of exercise" />
+            android:text="Level of exercise"
+            android:textSize="24sp" />
 
         <RadioButton
             android:id="@+id/radioButton5"

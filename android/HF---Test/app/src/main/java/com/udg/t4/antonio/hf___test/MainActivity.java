@@ -22,18 +22,23 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_Profile:
                     fragment = new ProfileFragment();
+                    //mTextMessage.setText("Profile");
                     break;
                 case R.id.navigation_CalorieC:
                     fragment = new CalorieFragment();
+                    //mTextMessage.setText("Calorie Count");
                     break;
                 case R.id.navigation_home:
                     fragment = new HomeFragment();
+                    //mTextMessage.setText("Home");
                     break;
                 case R.id.navigation_Ingredients:
                     fragment = new IngredientFragment();
+                    //mTextMessage.setText("Ingredients");
                     break;
                 case R.id.navigation_Recipes:
                     fragment = new RecipeFragment();
+                    //mTextMessage.setText("Recipes");
                     break;
             }
             if (fragment != null) {
@@ -52,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mTextMessage = (TextView) findViewById(R.id.message);
+        //mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
