@@ -24,33 +24,33 @@ import org.achartengine.renderer.SimpleSeriesRenderer;
 public class CalorieFragment extends android.app.Fragment {
     private static int[] COLORS = new int[] { Color.GREEN, Color.BLUE,Color.MAGENTA, Color.CYAN };
 
-    private static double[] VALUES = new double[] { 10, 11, 12, 13 };
+    private static double[] VALUES = new double[] { 30, 70 };
 
-    private static String[] NAME_LIST = new String[] { "A", "B", "C", "D" };
+    private static String[] NAME_LIST = new String[] { "Consumed", "Remaining" };
 
     private CategorySeries mSeries = new CategorySeries("");
 
     private DefaultRenderer mRenderer = new DefaultRenderer();
 
     private GraphicalView mChartView;
-    private Context context;
-    private ViewGroup rootLayout;
+    private LinearLayout layout;
     private View view;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        context = getActivity().getApplicationContext();
-        getActivity().setContentView(R.layout.activity_main);
+        //getActivity().setContentView(R.layout.calorie_fragment);
 
-        mRenderer.setApplyBackgroundColor(true);
-        mRenderer.setBackgroundColor(Color.argb(100, 50, 50, 50));
+        mRenderer.setApplyBackgroundColor(false);
+        //mRenderer.setBackgroundColor(Color.argb(100, 50, 50, 50));
         mRenderer.setChartTitleTextSize(20);
-        mRenderer.setLabelsTextSize(15);
-        mRenderer.setLegendTextSize(15);
+        mRenderer.setLabelsTextSize(35);
+        mRenderer.setLegendTextSize(55);
+        mRenderer.setLegendHeight(55);
+        mRenderer.setShowLabels(false);
         mRenderer.setMargins(new int[] { 20, 30, 15, 0 });
-        mRenderer.setZoomButtonsVisible(true);
-        mRenderer.setStartAngle(90);
+        mRenderer.setZoomButtonsVisible(false);
+        mRenderer.setStartAngle(270);
 
         for (int i = 0; i < VALUES.length; i++) {
             mSeries.add(NAME_LIST[i] + " " + VALUES[i], VALUES[i]);
@@ -58,7 +58,6 @@ public class CalorieFragment extends android.app.Fragment {
             renderer.setColor(COLORS[(mSeries.getItemCount() - 1) % COLORS.length]);
             mRenderer.addSeriesRenderer(renderer);
         }
-        mChartView = ChartFactory.getPieChartView(context, mSeries, mRenderer);
 
         if (mChartView != null) {
             mChartView.repaint();
@@ -66,12 +65,24 @@ public class CalorieFragment extends android.app.Fragment {
 
     }
 
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.calorie_fragment, container, false);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        mChartView = ChartFactory.getPieChartView(getActivity(), mSeries, mRenderer);
+    }
+
     @Override
     public void onResume() {
         super.onResume();
+        layout = (LinearLayout) getActivity().findViewById(R.id.chart);
+        layout.addView(mChartView);
         if (mChartView != null) {
-            rootLayout = (ViewGroup) getView().findViewById(R.id.chart);
-            rootLayout.addView(mChartView);
             mChartView.repaint();
         }
     }
