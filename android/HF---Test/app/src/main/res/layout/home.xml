@@ -5,7 +5,7 @@
 
     <fragment
         android:id="@+id/fragment"
-        android:name="com.udg.t4.antonio.hf___test.Home"
+        android:name="com.udg.t4.antonio.hf___test.HomeFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </LinearLayout>
