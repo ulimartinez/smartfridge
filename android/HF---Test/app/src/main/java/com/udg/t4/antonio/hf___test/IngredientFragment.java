@@ -15,10 +15,12 @@ import android.widget.ImageView;
 
 public class IngredientFragment extends android.app.Fragment {
     GridView grid_view;
+    static int count = 0;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        count++;
         //getActivity().setContentView(R.layout.ingredients_fragment);
     }
 

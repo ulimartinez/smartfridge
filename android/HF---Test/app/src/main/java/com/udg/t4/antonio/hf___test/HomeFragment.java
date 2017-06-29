@@ -1,5 +1,7 @@
 package com.udg.t4.antonio.hf___test;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
@@ -10,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.synnapps.carouselview.CarouselView;
+import com.synnapps.carouselview.ImageClickListener;
 import com.synnapps.carouselview.ImageListener;
 
 /**
@@ -23,6 +26,7 @@ public class HomeFragment extends android.app.Fragment{
 
     int[] sampleImages = {R.drawable.sample_0, R.drawable.sample_1, R.drawable.sample_2, R.drawable.sample_3};
     int[] sampleImages2 = {R.drawable.sample_1, R.drawable.sample_0, R.drawable.sample_3, R.drawable.sample_2};
+    String[] urls = {"http://food2fork.com/view/Maple_Salmon/22317", "http://food2fork.com/view/Corn__Cheese_Chowder/46985", "http://food2fork.com/view/Creamy_Lemon_Basil_Potato_Salad/46920", "http://food2fork.com/view/Angel_Hair_Pasta_with_Green_Garlic_Cream_Sauce_Recipe/8ce044"};
     ImageListener imageListener = new ImageListener() {
         @Override
         public void setImageForPosition(int position, ImageView imageView) {
@@ -48,6 +52,15 @@ public class HomeFragment extends android.app.Fragment{
         carouselView = (CarouselView) view.findViewById(R.id.carouselView);
         carouselView.setImageListener(imageListener);
         carouselView.setPageCount(sampleImages.length);
+
+        carouselView.setImageClickListener(new ImageClickListener() {
+            @Override
+            public void onClick(int position) {
+                Uri uri = Uri.parse(urls[position]); // missing 'http://' will cause crashed
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
 
         carouselView2 = (CarouselView) view.findViewById(R.id.carouselView2);
         carouselView2.setImageListener(imageListener2);

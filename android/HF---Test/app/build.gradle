@@ -41,4 +41,6 @@ dependencies {
     compile 'org.achartengine:achartengine:1.2.0'
 
     compile 'com.synnapps:carouselview:0.1.4'
+
+    compile 'com.ibm.watson.developer_cloud:java-sdk:2.10.0'
 }
