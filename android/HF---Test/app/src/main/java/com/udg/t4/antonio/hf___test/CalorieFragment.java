@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.achartengine.ChartFactory;
@@ -22,9 +23,9 @@ import org.achartengine.renderer.SimpleSeriesRenderer;
  */
 
 public class CalorieFragment extends android.app.Fragment {
-    private static int[] COLORS = new int[] { Color.GREEN, Color.BLUE,Color.MAGENTA, Color.CYAN };
+    private static int[] COLORS = new int[] {Color.MAGENTA, Color.CYAN };
 
-    private static double[] VALUES = new double[] { 30, 70 };
+    private static double[] VALUES = new double[] { 1300, 900 };
 
     private static String[] NAME_LIST = new String[] { "Consumed", "Remaining" };
 
@@ -42,15 +43,19 @@ public class CalorieFragment extends android.app.Fragment {
         //getActivity().setContentView(R.layout.calorie_fragment);
 
         mRenderer.setApplyBackgroundColor(false);
-        //mRenderer.setBackgroundColor(Color.argb(100, 50, 50, 50));
-        mRenderer.setChartTitleTextSize(20);
-        mRenderer.setLabelsTextSize(35);
+        mRenderer.setChartTitle("Calorie Consumption");
+        mRenderer.setBackgroundColor(Color.WHITE);
+        mRenderer.setChartTitleTextSize(50);
+        //mRenderer.setLabelsTextSize(35);
         mRenderer.setLegendTextSize(55);
-        mRenderer.setLegendHeight(55);
+        mRenderer.setLegendHeight(200);
         mRenderer.setShowLabels(false);
         mRenderer.setMargins(new int[] { 20, 30, 15, 0 });
         mRenderer.setZoomButtonsVisible(false);
         mRenderer.setStartAngle(270);
+        mRenderer.setPanEnabled(false);
+        mRenderer.setZoomEnabled(false);
+        mRenderer.setFitLegend(true);
 
         for (int i = 0; i < VALUES.length; i++) {
             mSeries.add(NAME_LIST[i] + " " + VALUES[i], VALUES[i]);
@@ -68,13 +73,13 @@ public class CalorieFragment extends android.app.Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.calorie_fragment, container, false);
+        return view = inflater.inflate(R.layout.calorie_fragment, container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mChartView = ChartFactory.getPieChartView(getActivity(), mSeries, mRenderer);
+        mChartView = ChartFactory.getPieChartView(view.findViewById(R.id.chart).getContext(), mSeries, mRenderer);
     }
 
     @Override

@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="#4DDBFF">
 
+
     <LinearLayout
         android:id="@+id/chart"
         android:layout_width="fill_parent"
