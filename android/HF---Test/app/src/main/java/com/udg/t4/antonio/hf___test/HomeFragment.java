@@ -22,7 +22,7 @@ public class HomeFragment extends android.app.Fragment{
     CarouselView carouselView2;
 
     int[] sampleImages = {R.drawable.sample_0, R.drawable.sample_1, R.drawable.sample_2, R.drawable.sample_3};
-    int[] sampleImages2 = {R.drawable.sample_1, R.drawable.sample_0, R.drawable.sample_3, R.drawable.sample_2};
+    int[] sampleImages2 = {R.drawable.sample_5, R.drawable.sample_6, R.drawable.sample_3, R.drawable.sample_0};
     ImageListener imageListener = new ImageListener() {
         @Override
         public void setImageForPosition(int position, ImageView imageView) {

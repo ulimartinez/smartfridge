@@ -14,6 +14,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
 public class IngredientFragment extends android.app.Fragment {
+    private static String[] NAME_LIST = new String[] { "Eggs", "Chicken breast", "Pasta", "Tomato",
+                    "Chesse", "Lettuce", "Carrots", "Potato", "Pepper", "Broccoli"};
+
     GridView grid_view;
 
     @Override
@@ -34,7 +37,7 @@ public class IngredientFragment extends android.app.Fragment {
             public void onItemClick(AdapterView<?> arg0, View arg1, int position,
                                     long arg3) {
 
-                Toast.makeText(getActivity().getBaseContext(), "Image "+position, Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity().getBaseContext(), " "+NAME_LIST[position], Toast.LENGTH_LONG).show();
 
             }
 
@@ -48,7 +51,9 @@ public class IngredientFragment extends android.app.Fragment {
         private Integer image_id[] = {R.drawable.sample_ing1,
                 R.drawable.sample_ing2, R.drawable.sample_ing3,
                 R.drawable.sample_ing4, R.drawable.sample_ing5,
-                R.drawable.sample_ing6
+                R.drawable.sample_ing6, R.drawable.sample_ing7,
+                R.drawable.sample_ing8, R.drawable.sample_ing9,
+                R.drawable.sample_ing10
         };
 
         public ImageAdapter(Context CTX) {
@@ -77,9 +82,9 @@ public class IngredientFragment extends android.app.Fragment {
             if(arg1 == null)
             {
                 img = new ImageView(CTX);
-                img.setLayoutParams(new GridView.LayoutParams(160,160));
+                img.setLayoutParams(new GridView.LayoutParams(250,250));
                 img.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                img.setPadding(8, 8, 8, 8);
+                img.setPadding(15, 15, 15, 15);
 
             }
             else
