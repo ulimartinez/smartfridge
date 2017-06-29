@@ -19,7 +19,7 @@
         android:id="@+id/add_manual"
         android:layout_width="wrap_content"
         android:layout_height="147dp"
-        android:layout_weight="0.14"
+        android:layout_weight="0.44"
         android:contentDescription="@android:string/copyUrl"
         android:scaleType="fitCenter"
         android:text="Button"
@@ -28,9 +28,8 @@
     <ImageButton
         android:id="@+id/add_speech"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.63"
+        android:layout_height="201dp"
         android:scaleType="fitCenter"
         android:text="Button"
-        app:srcCompat="@android:drawable/ic_btn_speak_now" />
+        app:srcCompat="@drawable/speech_button" />
 </LinearLayout>
