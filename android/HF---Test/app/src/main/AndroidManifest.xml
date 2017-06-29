@@ -16,6 +16,7 @@
         android:label="Healthy Chef"
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
+        android:largeHeap="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"

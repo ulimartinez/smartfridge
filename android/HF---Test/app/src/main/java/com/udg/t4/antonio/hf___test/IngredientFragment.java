@@ -1,7 +1,8 @@
 package com.udg.t4.antonio.hf___test;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
@@ -18,9 +19,15 @@ public class IngredientFragment extends android.app.Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getActivity().setContentView(R.layout.ingredients);
-        grid_view = (GridView) getActivity().findViewById(R.id.gridview);
-        grid_view.setAdapter(new ImageAdapter(getActivity()));
+        //getActivity().setContentView(R.layout.ingredients_fragment);
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.ingredients_fragment, container, false);
+        grid_view = (GridView) view.findViewById(R.id.gridview);
+        grid_view.setAdapter(new ImageAdapter(view.getContext()));
         grid_view.setOnItemClickListener(new OnItemClickListener() {
 
             @Override
@@ -33,14 +40,15 @@ public class IngredientFragment extends android.app.Fragment {
 
 
         });
+        return view;
     }
 
     public class ImageAdapter extends BaseAdapter {
         private Context CTX;
-        private Integer image_id[] = {R.drawable.sample_Ing1,
-                R.drawable.sample_Ing2, R.drawable.sample_Ing3,
-                R.drawable.sample_Ing4, R.drawable.sample_Ing5,
-                R.drawable.sample_Ing6
+        private Integer image_id[] = {R.drawable.sample_ing1,
+                R.drawable.sample_ing2, R.drawable.sample_ing3,
+                R.drawable.sample_ing4, R.drawable.sample_ing5,
+                R.drawable.sample_ing6
         };
 
         public ImageAdapter(Context CTX) {
