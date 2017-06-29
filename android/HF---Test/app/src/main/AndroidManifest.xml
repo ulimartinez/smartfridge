@@ -11,14 +11,15 @@
     <application
         android:allowBackup="true"
         tools:replace="android:label"
-        android:icon="@mipmap/ic_launcher"
-        android:label="SmartFridge"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:logo="@drawable/logo"
+        android:icon="@drawable/logo"
+        android:label="Healthy Chef"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="SmartFridge">
+            android:label="Healthy Chef">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

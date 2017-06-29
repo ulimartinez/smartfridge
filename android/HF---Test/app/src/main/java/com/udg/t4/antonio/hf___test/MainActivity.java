@@ -7,6 +7,7 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
@@ -56,8 +57,16 @@ public class MainActivity extends AppCompatActivity {
         navigation.getMenu().getItem(2).setChecked(true);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        mainActivity = this;
+        ActionBar ab =getSupportActionBar();
+        ab.setDisplayShowHomeEnabled(true);
+        ab.setIcon(R.drawable.app_icon);
+        ab.setTitle("Healthy Chef");
+        ab.setDisplayShowTitleEnabled(true);
 
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.content, new HomeFragment());
+        fragmentTransaction.commit();
     }
 
 }

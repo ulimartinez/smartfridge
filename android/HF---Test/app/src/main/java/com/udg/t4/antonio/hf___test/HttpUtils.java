@@ -1,5 +1,7 @@
 package com.udg.t4.antonio.hf___test;
 
+import android.content.Context;
+
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -13,7 +15,15 @@ import java.util.Map;
 public class HttpUtils {
     private static final String BASE_URL = "https://smart-fridge.mybluemix.net/index.php/";
 
-    private static AsyncHttpClient client = new AsyncHttpClient();
+    private static AsyncHttpClient client;
+    Context context;
+    HttpCompleted listener;
+
+    public HttpUtils(Context context, HttpCompleted listener){
+        client = new AsyncHttpClient();
+        this.context = context;
+        this.listener = listener;
+    }
 
     public static void get(String url, String[][] params, AsyncHttpResponseHandler responseHandler) {
         client.get(serializeParams(getAbsoluteUrl(url), params), responseHandler);
