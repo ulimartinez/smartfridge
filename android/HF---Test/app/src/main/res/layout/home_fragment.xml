@@ -9,14 +9,17 @@
     android:paddingLeft="16dp"
     android:paddingTop="16dp"
     android:paddingBottom="16dp"
-    tools:context=".HomeFragment">
+    tools:context=".HomeFragment"
+    android:background="#DCEDC8">
 
     <TextView
         android:id="@+id/title1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="My Recipes" />
+        android:text="My Recipes"
+        android:textSize="20sp"
+        />
 
     <com.synnapps.carouselview.CarouselView
         android:id="@+id/carouselView"
@@ -34,7 +37,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="Popular Recipes" />
+        android:text="Popular Recipes"
+        android:textSize="20sp"/>
 
     <com.synnapps.carouselview.CarouselView
         android:id="@+id/carouselView2"
