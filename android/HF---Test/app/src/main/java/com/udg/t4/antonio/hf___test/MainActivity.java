@@ -9,7 +9,6 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     public static Activity mainActivity;
@@ -22,23 +21,18 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_Profile:
                     fragment = new ProfileFragment();
-                    //mTextMessage.setText("Profile");
                     break;
                 case R.id.navigation_CalorieC:
                     fragment = new CalorieFragment();
-                    //mTextMessage.setText("Calorie Count");
                     break;
                 case R.id.navigation_home:
                     fragment = new HomeFragment();
-                    //mTextMessage.setText("Home");
                     break;
                 case R.id.navigation_Ingredients:
                     fragment = new IngredientFragment();
-                    //mTextMessage.setText("Ingredients");
                     break;
-                case R.id.navigation_Recipes:
-                    fragment = new RecipeFragment();
-                    //mTextMessage.setText("Recipes");
+                case R.id.navigation_Add:
+                    fragment = new AddFragment();
                     break;
             }
             if (fragment != null) {
